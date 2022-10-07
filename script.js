@@ -2,8 +2,10 @@ const input = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const clear = document.getElementById('apaga-tudo');
+const clearCompleted = document.getElementById('remover-finalizados');
+const save = document.getElementById('salver-tarefas');
 
-const selected = (event) => {
+const selectedItem = (event) => {
   event.target.className = 'selected';
   for (const item of list.children) {
     if (item !== event.target) {
@@ -13,7 +15,7 @@ const selected = (event) => {
   }
 }
 
-const completed = (event) => {
+const completedItem = (event) => {
   if (event.target.classList[1]) {
     event.target.classList.remove('completed');
   } else {
@@ -23,18 +25,33 @@ const completed = (event) => {
 
 const createItem = (props) => {
   const item = document.createElement('li');
-  item.addEventListener('click', selected)
-  item.addEventListener("dblclick", completed)
-  item.innerHTML = props
-  list.appendChild(item)
+  item.addEventListener('click', selectedItem);
+  item.addEventListener("dblclick", completedItem);
+  item.innerHTML = props;
+  list.appendChild(item);
 }
 
 button.addEventListener('click', ()=>{
-  const item = input.value
-  createItem(item)
-  input.value = innerHTML = ''
+  const item = input.value;
+  createItem(item);
+  input.value = innerHTML = '';
 })
 
 clear.addEventListener('click', () => {
-  list.innerHTML = ''
+  list.innerHTML = '';
+})
+
+clearCompleted.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  for (const item of completed) {
+    list.removeChild(item)
+  }
+})
+
+save.addEventListener('click', () => {
+  const saveList =  []
+  for (const item of list.children) {
+    saveList.push(item.innerHTML);
+    localStorage.setItem('list', JSON.stringify(saveList));
+  }
 })
