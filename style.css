@@ -5,3 +5,25 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+.center {
+  text-align: center;
+}
+
+.containerMain {
+  width: 70vw;
+  margin: auto;
+}
+
+ol {
+  width: 50vw;
+  margin: auto;
+}
+
+ol > li {
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}

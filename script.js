@@ -15,15 +15,15 @@ const selectedItem = (event) => {
       item.classList.remove('selected');
     }
   }
-}
+};
 
 const completedItem = (event) => {
-  if (event.target.classList[1]) {
+  if (event.target.classList[2]) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
-}
+};
 
 const createEvent = () => {
   const listItem = document.querySelectorAll('#lista-tarefas li');
@@ -31,56 +31,57 @@ const createEvent = () => {
     item.addEventListener('click', selectedItem);
     item.addEventListener('dblclick', completedItem);
   }
-}
+};
 
 const createItem = (props) => {
   const item = document.createElement('li');
+  item.classList.add('list-group-item');
   item.innerHTML = props;
   list.appendChild(item);
   createEvent();
-}
+};
 
 button.addEventListener('click', () => {
   const item = input.value;
   createItem(item);
   input.value = innerHTML = '';
-})
+});
 
 clear.addEventListener('click', () => {
   list.innerHTML = '';
-})
+});
 
 clearCompleted.addEventListener('click', () => {
   const completed = document.querySelectorAll('.completed');
   for (const item of completed) {
-    list.removeChild(item)
+    list.removeChild(item);
   }
-})
+});
 
 removeSelected.addEventListener('click', () => {
   const selected = document.querySelector('.selected');
-    list.removeChild(selected)
-})
+    list.removeChild(selected);
+});
 
 save.addEventListener('click', () => {
-  const saveList = []
+  const saveList = [];
   for (const item of list.children) {
     saveList.push(`<li class='${item.className}'>${item.innerHTML}</li>`);
   }
   localStorage.setItem('list', JSON.stringify(saveList));
-})
+});
 
 const createList = (listChanger) => {
   for (const itemList of listChanger) {
     list.insertAdjacentHTML('beforeend', `<li class='${itemList.className}'>${itemList.innerHTML}</li>`);
   }
-  createEvent()
-}
+  createEvent();
+};
 
 const changerPosition = (myList, from, to) => {
   myList.splice(to, 0, myList.splice(from, 1)[0]);
   return myList;
-}
+};
 
 const move = (props) => {
   const listChanger = [];
@@ -90,11 +91,11 @@ const move = (props) => {
     listChanger.push(item);
   }
   for (const key in listChanger) {
-    if (listChanger[key].classList[0] === 'selected') {
-      itemSelected = key
+    if (listChanger[key].classList[1] === 'selected') {
+      itemSelected = key;
     }
   }
-  let parsItemSelectedFromNumber = parseInt(itemSelected)
+  let parsItemSelectedFromNumber = parseInt(itemSelected);
 
   if (props === 1) {
     position = parsItemSelectedFromNumber -= 1;
@@ -104,20 +105,20 @@ const move = (props) => {
 
   changerPosition(listChanger, itemSelected, position);
   list.innerHTML = '';
-  createList(listChanger)
-}
+  createList(listChanger);
+};
 
 moveUp.addEventListener('click', () => {
-  move(1)
-})
+  move(1);
+});
 moveDow.addEventListener('click', () => {
-  move(0)
-})
+  move(0);
+});
 
 if (localStorage.key('list')) {
-  let listObj = JSON.parse(localStorage.getItem('list'));
+  const listObj = JSON.parse(localStorage.getItem('list'));
   for (const item of listObj) {
     list.insertAdjacentHTML('beforeend', item);
   }
-  createEvent()
+  createEvent();
 }
