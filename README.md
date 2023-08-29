@@ -28,7 +28,13 @@ O projeto "Todo List" é parte do currículo da formação de Desenvolvedor Web 
 
 # 🔨 Funcionalidade do projeto
 
-- funcionalidade
+- Adicionar item na lista
+- Finalizar com double click
+- Remover Finalizados
+- Apagar item
+- Apaga Lista
+- Salvar Lista no LocalStore
+- Move Posição do Item
 
 # Acesso ao projeto
 
