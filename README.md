@@ -20,7 +20,7 @@
 
 # Descrição do Projeto
 
-Este projeto foi desenvolvido como parte da formação de Desenvolvedor Web na [Trybe](https://www.betrybe.com/). O objetivo do projeto é ensinar o uso de ...
+O projeto "Todo List" é parte do currículo da formação de Desenvolvedor Web da [Trybe](https://www.betrybe.com/). Nesse projeto, os alunos têm a oportunidade de aplicar seus conhecimentos em HTML, CSS e JavaScript para criar uma aplicação de lista de tarefas interativa.
 
 # Status do Projeto
 
@@ -39,13 +39,13 @@ Para acessar e executar este projeto, siga os passos abaixo:
 2. Clone o Projeto
 
 ```bash
-git clone NomeDaPasta
+git clone https://github.com/EversonDias/Project_Trybe_HTML_Bootstrap_and_JavaScript_Todo_List.git TodoList
 ```
 
 3. Entre no projeto
 
 ```bash
-cd NomeDaPasta
+cd TodoList
 ```
 
 4. inicie o projeto
