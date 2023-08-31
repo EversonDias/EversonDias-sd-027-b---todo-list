@@ -45,7 +45,7 @@ Para acessar e executar este projeto, siga os passos abaixo:
 2. Clone o Projeto
 
 ```bash
-git clone https://github.com/EversonDias/Project_Trybe_HTML_Bootstrap_and_JavaScript_Todo_List.git TodoList
+git clone https://github.com/EversonDias/Todo_List_with_HTML_Bootstrap_and_JavaScript.git TodoList
 ```
 
 3. Entre no projeto
